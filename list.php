@@ -1,7 +1,7 @@
 <?php
     require('bd_users.php');
 
-    $S = "select * from list Group by author";
+    $S = "select * from list";
     $res = mysqli_query($con, $S);
 
     session_start();
@@ -35,19 +35,20 @@
             <td class="Cell"> Change</td>
         </tr>
     <?php
-        // $C = mysql_query("SELECT COUNT(*) FROM list Group by author");
-        // $rw = mysql_fetch_row($C);
-        // $count = $rw[0]; 
+        $Count = 0;
         while($row = mysqli_fetch_row($res))
         {
-            print("<tr>");
-                print("<td >$row[0]</td>");
+            if($row[2] == $_SESSION["login"]) 
+            {
+                $Count++;
+                print("<tr>");
+                print("<td >$Count</td>");
                 print("<td >$row[1]</td>");
                 print("<td ><a href='delete.php?id=".$row[0]."'>click</td>");
                 print("<td ><a href='update.php?id=".$row[0]."'>click</td>");
             print("</tr>");
+            }
         }
-
     ?>
     </form>
 </main>
