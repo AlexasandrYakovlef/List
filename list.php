@@ -30,7 +30,7 @@
         <table border = 1>
         <tr>
             <td class="Cell"> №</td>
-            <td class="Cell"> Point</td>
+            <td class="Cell"> Title</td>
             <td class="Cell"> Delete</td>
             <td class="Cell"> Change</td>
         </tr>
