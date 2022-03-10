@@ -29,31 +29,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet" type="text/css">
+    <link href="Style.css" rel="stylesheet" type="text/css">
     <title>Log in</title>
 </head>
-<body>
-    <header>
+<body class="Black">
+        <header>
 
-    </header>
-    <nav>
-        <a href="registr.php">Regestration</a>
-    </nav>
-    <main>
-        <form action="#" method="get">
-            <div class="inp">
-                <label for="name">Name:</label>
-                <input type="text" id="name" class="in" name="name">
-                <label for="pass">Password:</label>
-                <input type="password" id="pass" class="in" name="pass">
-            </div>
-            <div class="btns">
-                <input type="submit" value="Log in" class="bt" name="LogIn">
-            </div>
-        </form>
-    </main>
-    <footer>
+        </header>
+        <nav>
+            <a href="registr.php">Regestration</a>
+        </nav>
+        <main>
+            <form action="#" method="get">
+                <div class="inp">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" class="in" name="name">
+                    <label for="pass">Password:</label>
+                    <input type="password" id="pass" class="in" name="pass">
+                </div>
+                <div class="btns">
+                    <input type="submit" value="Log in" class="bt" name="LogIn">
+                </div>
 
-    </footer>
+                <input type="submit" value="Change tema" class="bt" name="tema">
+            </form>
+        </main>
+        <footer>
+
+        </footer>
 </body>
 </html>
+
+<script> 
+    function ChangeTema()
+    {
+        type = getElementnyId('White')
+        if(isset($_GET['tema']))
+            {
+                getElementById()
+            }
+        if(this.classList.contains('White'))
+        {
+            this.classList.remove('White');
+            this.classList.add('Black');
+        }
+        else {
+            this.classList.remove('Black');
+            this.classList.add('White');
+        }
+    }
+</script>
