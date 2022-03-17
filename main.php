@@ -34,7 +34,7 @@
 </head>
 <body class="Black">
         <header>
-
+            <input type="submit" value="Change tema" class="bt" name="tema" onclick = "ChangeTema()">   
         </header>
         <nav>
             <a href="registr.php">Regestration</a>
@@ -50,8 +50,6 @@
                 <div class="btns">
                     <input type="submit" value="Log in" class="bt" name="LogIn">
                 </div>
-
-                <input type="submit" value="Change tema" class="bt" name="tema">
             </form>
         </main>
         <footer>
@@ -60,22 +58,4 @@
 </body>
 </html>
 
-<script> 
-    function ChangeTema()
-    {
-        type = getElementnyId('White')
-        if(isset($_GET['tema']))
-            {
-                getElementById()
-            }
-        if(this.classList.contains('White'))
-        {
-            this.classList.remove('White');
-            this.classList.add('Black');
-        }
-        else {
-            this.classList.remove('Black');
-            this.classList.add('White');
-        }
-    }
-</script>
+<script src="ChangeTem.js"></script>

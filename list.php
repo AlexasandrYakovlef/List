@@ -52,7 +52,7 @@
     ?>
     </form>
 </main>
-
+<script src="ChangeTem.js"></script>
 <?php
     }
     else{

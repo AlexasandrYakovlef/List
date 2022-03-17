@@ -1,12 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <form action="javascript: reg()" method="get" name="data">
+
+            <label for="login" > Input login:
+                <input type="text" id="login" name="login" placeholder="login" size="10" required> 
+            </label><br>
+
+            <label for="password" > Input password:
+                <input type="password" id="password" name="pas" placeholder="password" size="10" required> 
+            </label><br>
+
+            <label for="email" > Input address:
+                <input type="email" id="email" name="email" placeholder="email" size="10" required> 
+            </label><br>
+
+            <label for="check"> Receive news:
+                <input type="checkbox" id="mailing" name="check" value="true" size="10" checked> 
+            </label>
+
+            <br>Gender<br>
+            <label for="gender_m"><input type="radio" id="g_m" name="gender" value="m" checked>Man</label><br>
+            <label for="gender_w"><input type="radio" id="g_w" name="gender" value="w">Woman</label><br>
+
+            <select name="sity">Change sity:
+                <option value="Dub">Dubna </option>
+                <option value="Msk">Moscow </option>
+                <option value="Tver">Tver </option>
+            </select>
+            <br>
+            <input type="submit" value="Push">
+            <br>
+            <input type="reset" name="res" value="Clear">
+            <br>
+            <img onmouseover="ChangeOver(this)" onmouseout="ChangeOut(this)" name="pic" src="https://www.lifepng.com/wp-content/uploads/2020/11/Plain-Black-Question-Mark-png-hd.png" alt="Cat" width="300" height="300">
+            <br>
+            <div onclick = "ClickLkm(this)" class = "color" id = "circle"></div>
+
+        </form>
+    </body>
 </html>
+<script>
+    function reg(){
+        login = document.data.login.value;
+        pas = document.data.pas.value;
+        email = document.data.email.value;
+        console.log("Данные: " + login + " " + pas + " " + email);
+
+        var check_console = false;
+
+        if (document.data.check.checked) {
+            check_console = document.data.check.value;
+            console.log("Данные: " + check_console);
+        }
+        var check = document.data.check.checked;
+
+        for (i = 0; i < document.data.gender.length; i++)
+        {
+            if (document.data.gender[i].checked){
+                gender = document.data.gender[i].value;
+            }
+        }
+        console.log("Данные: " + gender);
+
+        var sity_en;
+        var sity_ru;
+        var index;
+        index = document.data.sity.selectedIndex;
+        sity_en = document.data.sity[index].value;
+        console.log("Данные: " + index + " " + sity_en);
+
+    }
+
+    function ChangeOver(x) 
+    {
+        x.src= 'https://i.iscr.ru/2022/03/17/Screenshot_1.png';
+    };
+ 
+    function ChangeOut(x) 
+    {   
+        x.src= 'https://www.lifepng.com/wp-content/uploads/2020/11/Plain-Black-Question-Mark-png-hd.png';
+    }
+
+    function ClickLkm(x) 
+    {
+        x.style.background = "#" + Math.floor(Math.random() * 2 ** 24).toString(16).padStart(6, "0");
+    }
+
+    var div = document.getElementById('circle');
+
+    var listener = function(e) 
+        {
+        div.style.left = e.pageX - 50 + "px";
+        div.style.top = e.pageY - 50 + "px";
+        };
+
+    circle.addEventListener('mousedown', e => 
+    {
+           document.addEventListener('mousemove', listener);
+    });
+
+    circle.addEventListener('mouseup', e => 
+    {
+        document.removeEventListener('mousemove', listener);
+    });
+</script>
+<style>
+    .color{
+        width:100px;
+        height:100px;
+        background-color: rgb(84, 247, 238);
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        right: 50px;
+        top: 50px;
+        border-radius: 50%;
+    }
+</style>

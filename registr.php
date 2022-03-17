@@ -43,6 +43,7 @@
     </head>
     <body>
         <header>
+            <input type="submit" value="Change tema" class="bt" name="tema" onclick = "ChangeTema()">
         </header>
         <nav>
             <a href="main.php">Back</a>
@@ -65,3 +66,5 @@
         </footer>
     </body>
 </html>
+
+<script src="ChangeTem.js"></script>
