@@ -7,3 +7,14 @@
     background-color: rgb(0, 0, 0);
     color: white;
 }
+.color{
+    width:100px;
+    height:100px;
+    background-color: rgb(84, 247, 238);
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    right: 50px;
+    top: 50px;
+    border-radius: 50%;
+}
