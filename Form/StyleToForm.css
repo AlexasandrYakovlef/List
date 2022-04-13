@@ -1,0 +1,19 @@
+.error{
+  border: 2px solid red;
+}
+.normal{
+  border: 2px solid rgb(0, 0, 0);
+}
+.block1 {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 1300px;
+  top: 50px;
+  border-radius: 50%;
+  background: blue;
+}
+body{
+  background-color: rgb(224, 195, 158);
+}
+

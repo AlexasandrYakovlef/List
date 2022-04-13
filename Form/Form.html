@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="StyleToForm.css" rel="stylesheet" type="text/css">
+        <title>Form</title>
+    </head>
+    <body>
+        <form method="post" name="registr" >
+
+            <label for="login" > Input login:
+                <input type="text" id="login" name="login" placeholder="login" size="10" required> 
+            </label><br>
+
+            <label for="password" > Input password:
+                <input type="password" id="password" name="password" placeholder="password" size="10" required> 
+            </label><br>
+
+            <label for="mail" > Input address:
+                <input type="email" id="email" name="email" placeholder="email" size="10" required> 
+            </label><br>
+
+            <label for="check"> Receive news:
+                <input type="checkbox" id="mailing" name="check" value="true" size="10" checked> 
+            </label>
+
+            <br>Gender<br>
+            <label for="gender_m"><input type="radio" id="g_m" name="gender" value="m" checked>Man</label><br>
+            <label for="gender_w"><input type="radio" id="g_w" name="gender" value="w" >Woman</label><br>
+
+            <select name="sity">Change sity:
+                <option value="Dub">Dubna </option>
+                <option value="Msk">Moscow </option>
+                <option value="Tver">Tver </option>
+            </select>
+            <br>
+            <input type="submit" class="htt" value="Push" onclick="Check()">
+            <br>
+            <input type="reset" name="res" value="Clear">
+            <br>
+            <img onmouseover="ChangeOver(this)" onmouseout="ChangeOut(this)" name="pic" src="https://www.lifepng.com/wp-content/uploads/2020/11/Plain-Black-Question-Mark-png-hd.png" alt="Cat" width="300" height="300">
+            <br>
+            <div onclick = "ClickLkm(this)" class = "block1" id="circle" onMouseDown="move()" onKeyDown="stop()"></div>
+
+        </form>
+    </body>
+</html>
+<script>
+
+    function ChangeOver(x) 
+    {
+        x.src= 'https://cdn.fishki.net/upload/post/201508/08/1622760/kotik_kak_pushistyy_komochek_1920x1200.jpg';
+    };
+ 
+    function ChangeOut(x) 
+    {   
+        x.src= 'https://www.lifepng.com/wp-content/uploads/2020/11/Plain-Black-Question-Mark-png-hd.png';
+    }
+
+    function ClickLkm(x) 
+    {
+        x.style.background = "#" + Math.floor(Math.random() * 2 ** 24).toString(16).padStart(6, "0");
+    }
+
+    var div = document.getElementById('circle');
+
+    div.style.left = 1200 + "px";
+    div.style.top = 50 + "px";
+
+    var listener = function(e) {
+        div.style.left = e.pageX - 50 + "px";
+    div.style.top = e.pageY - 50 + "px";
+    };
+
+    circle.addEventListener('mousedown', e => {
+        document.addEventListener('mousemove', listener);
+    });
+
+    circle.addEventListener('mouseup', e => {
+        document.removeEventListener('mousemove', listener);
+    });
+
+    function Check()
+    {
+        var text_login = document.getElementById("login").value;
+        var login = document.getElementById("login");
+
+        var text_password = document.getElementById("password").value;
+        var password = document.getElementById("password");
+
+        var text_email = document.getElementById("email").value
+        var email = document.getElementById("email");
+
+        var index = document.registr.sity.selectedIndex;
+        var sity_en = document.registr.sity[index].value;
+
+        result = false;
+
+        if(text_login.toString().length < 4 || text_login == null)
+        {
+            login.classList.remove('normal');
+            login.className = "error";
+            result = false;
+            return false;
+        }  
+        else{
+            result = true;
+            login.classList.remove('error');
+            login.className = "normal";
+        } 
+
+
+        if(text_password.toString().length < 8 || text_password == null)
+        {
+            password.classList.remove('normal');
+            password.className = "error";
+            result = false;
+            return false;
+        }  
+        else{
+            result = true;
+            password.classList.remove('error');
+            password.className = "normal";
+        } 
+
+        if(text_email.toString().length < 4 || text_email == null)
+        {
+            email.classList.remove('normal');
+            email.className = "error";
+            result = false;
+            if(text_email.toString().indexOf('@') == -1)
+            {
+                email.classList.remove('normal');
+                email.className = "error";
+                result = false;
+                return false;
+            }
+            else{
+                result = true;
+                email.classList.remove('error');
+                email.className = "normal";
+            } 
+            return false;
+        } 
+        else{
+            result = true;
+            email.classList.remove('error');
+            email.className = "normal";
+        } 
+
+        if (result){
+            document.getElementById("login").value = "";
+            document.getElementById("password").value = "";
+            document.getElementById("email").value = "";
+
+            login.classList.remove('error');
+            login.className = "normal";
+            email.classList.remove('error');
+            email.className = "normal";
+            password.classList.remove('error');
+            password.className = "normal";
+        }
+        else{
+            document.getElementById("login").value = text_login;
+            document.getElementById("password").value = text_password;
+            document.getElementById("email").value = text_email;
+        }
+        console.log("Данные из текстовых полей: " +login.toString()+" "+password.toString()+" "+email.toString());
+        console.log("Данные из переключателей: " + mailing_console);
+        console.log("Данные из переключателей: " + gender);
+        console.log("Данные из выпадающего списка: " + index + " "+ sity_en);
+    }
+    
+</script>

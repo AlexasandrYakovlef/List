@@ -1,5 +1,6 @@
 <?php
-    require("header.html");
-    require("list.php");
-    require("footer.html");
+    $title = 'Главная';
+    require("components/header.php");
+    require("components/list.php");
+    require("components/footer.php");
 ?>

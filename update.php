@@ -1,5 +1,5 @@
 <?php
-    require("header.html");
+    require("components/header.php");
 ?>
 <?php
     require('bd_users.php'); 
@@ -40,5 +40,5 @@
     }
 ?>
 <?php
-    require("footer.html");
+    require("components/footer.php");
 ?>

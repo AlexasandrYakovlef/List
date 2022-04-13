@@ -1,17 +1,3 @@
-function ChangeTema()
-{
-    if(document.body.classList.contains("White"))
-    {
-        document.body.classList.remove("White");
-        document.body.classList.add("Black");
-    }
-    else 
-    {
-        document.body.classList.remove("Black");
-        document.body.classList.add("White");
-    }
-}
-
 function getCookie(name) {
     let matches = document.cookie.match(new RegExp(
       "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
@@ -42,7 +28,63 @@ function setCookie(name, value, options = {}) {
     }
     document.cookie = updatedCookie;
 }
-function SetTem(){
-    if(getCookie("tem") == undefined)
-        getCookie("tem") == 
+function deleteCookie(name) {
+  setCookie(name, "", {
+    'max-age': -1
+  })
+}
+function SetTheme()
+{
+  if(getCookie("theme") == undefined)
+  {
+    setCookie("theme", "White");
+    return;
+  }
+  else if(getCookie("theme") == "White") 
+  {
+    setCookie("theme", "Black");
+    ChangeTema();
+  }
+  else
+  {
+    setCookie("theme", "White");
+    ChangeTema();
+  }
+  SetText();
+}
+
+function ChangeTema()
+{
+  var element = ["Black", "White"];
+
+  if (getCookie("theme") == "White")
+  {
+    setCookie("theme", "Black")
+    element = ["Black", "White"];
+  }
+  else
+  {
+    setCookie("theme", "White");
+    element = ["White", "Black"];
+  }
+  document.body.classList.add(element[0]);
+  document.body.classList.remove(element[1]);
+
+  var elements = document.getElementsByTagName("section");
+  for (let s of elements)
+  {
+    s.classList.add(element[0]+"_border");
+    s.classList.remove(element[1]+"_border");
+  }
+  var _element = document.querySelector("form");
+  _element.classList.add(element[0]+"_border");
+  _element.classList.remove(element[1]+"_border");
+}
+
+function SaveText(input){
+  localStorage.setItem(input.name,input.value);
+}
+function SetText(){
+  document.reg.name.value = localStorage.getItem("name");
+  document.reg.pass.value = localStorage.getItem("pass");
 }

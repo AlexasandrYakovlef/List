@@ -46,13 +46,12 @@
                 print("<td >$row[1]</td>");
                 print("<td ><a href='delete.php?id=".$row[0]."'>click</td>");
                 print("<td ><a href='update.php?id=".$row[0]."'>click</td>");
-            print("</tr>");
+                print("</tr>");
             }
         }
     ?>
     </form>
 </main>
-<script src="ChangeTem.js"></script>
 <?php
     }
     else{

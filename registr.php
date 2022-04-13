@@ -41,7 +41,7 @@
         <title>Registration</title>
         <link href="Style.css" rel="stylesheet" type="text/css"> 
     </head>
-    <body>
+    <body onload="SetTheme()">
         <header>
             <input type="submit" value="Change tema" class="bt" name="tema" onclick = "ChangeTema()">
         </header>
